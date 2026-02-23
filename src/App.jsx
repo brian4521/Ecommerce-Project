@@ -6,6 +6,7 @@ import Checkout from "./pages/Checkout";
 import Productdetails from "./pages/Productdetails";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 const App = () => {
   return (
     <>
