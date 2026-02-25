@@ -13,7 +13,7 @@ const Productlist = () => {
       <div className="mx-auto container px-4 md:px-8 pt-8 ">
         <Searchbar />
         <Category />
-        <h2 className="text-2xl font-extrabold mx-auto px-4 md:px-8 pt-4  ">
+        <h2 className="text-2xl font-extrabold mx-auto px-4 md:px-8 pt-4 text-white">
           Featured Gear {products.length} items
         </h2>
 

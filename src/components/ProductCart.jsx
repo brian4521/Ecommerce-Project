@@ -8,7 +8,7 @@ const ProductCart = ({ product }) => {
       <div className="max-w-sm bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden shadow-xl hover:border-orange-500/50 transition-all duration-300 group">
         {/* Image Area with Link */}
         <Link
-          to="/productdetail"
+          to={`/product/${product.id}`}
           className="relative block h-48 overflow-hidden"
         >
           <img
