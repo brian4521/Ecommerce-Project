@@ -5,8 +5,9 @@ import { ChevronLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Tag } from "lucide-react";
 import { Zap } from "lucide-react";
-
+import { useCart } from "../context/CartContext";
 const Productdetails = () => {
+  const { addCart } = useCart();
   let { id } = useParams();
   const [product, setproduct] = useState();
   console.log(initialProducts);
@@ -74,7 +75,10 @@ const Productdetails = () => {
                 </ul>
               </div>
               <div>
-                <button className="w-full  py-3 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded-xl transition active:scale-95 shadow-lg shadow-orange-900/20">
+                <button
+                  className="w-full  py-3 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded-xl transition active:scale-95 shadow-lg shadow-orange-900/20"
+                  onClick={() => addCart(product)}
+                >
                   Add to Cart
                 </button>
               </div>

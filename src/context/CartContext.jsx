@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 
 const cartContext = createContext();
 
@@ -9,6 +9,7 @@ const CartContextProvider = ({ children }) => {
   const [cart, setcart] = useState([]);
   const products = initialProducts;
   const addCart = (product) => {
+    console.log(product);
     setcart((prevCart) => {
       const existingItem = prevCart.find((item) => {
         item.id == product.id;
@@ -43,8 +44,28 @@ const CartContextProvider = ({ children }) => {
   };
 
   const clearCart = () => setcart([]);
+
+  const cartCount = useMemo(() => {
+    cart.reduce((total, item) => total + item.quantity, 0);
+  }, [cart]);
+
+  const cartTotal = useMemo(() => {
+    cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  }, [cart]);
+
+  console.log("selected product", cart);
   return (
-    <cartContext.Provider value={{ products, addCart }}>
+    <cartContext.Provider
+      value={{
+        products,
+        addCart,
+        removeCart,
+        clearCart,
+        cartCount,
+        cartTotal,
+        cart,
+      }}
+    >
       {children}
     </cartContext.Provider>
   );

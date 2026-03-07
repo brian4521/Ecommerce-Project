@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 const ProductCart = ({ product }) => {
-  console.log(product);
+  const { addCart } = useCart();
+  // console.log(product);
   return (
     <>
       <div className="max-w-sm bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden shadow-xl hover:border-orange-500/50 transition-all duration-300 group">
@@ -37,7 +39,10 @@ const ProductCart = ({ product }) => {
             </button>
           </div>
 
-          <button className="w-full py-3 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded-xl transition active:scale-95 shadow-lg shadow-orange-900/20">
+          <button
+            className="w-full py-3 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded-xl transition active:scale-95 shadow-lg shadow-orange-900/20"
+            onClick={() => addCart(product)}
+          >
             Add to Cart
           </button>
         </div>
