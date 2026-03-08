@@ -11,14 +11,15 @@ const CartContextProvider = ({ children }) => {
   const addCart = (product) => {
     console.log(product);
     setcart((prevCart) => {
-      const existingItem = prevCart.find((item) => {
-        item.id == product.id;
-      });
+      const existingItem = prevCart.find((item) => item.id == product.id);
       if (existingItem) {
-        return prevCart.find((item) =>
-          item.id == product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item,
+        return prevCart.map(
+          (
+            item, //remenber use
+          ) =>
+            item.id == product.id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item,
         );
       } else {
         return [...prevCart, { ...product, quantity: 1 }];
@@ -46,7 +47,7 @@ const CartContextProvider = ({ children }) => {
   const clearCart = () => setcart([]);
 
   const cartCount = useMemo(() => {
-    cart.reduce((total, item) => total + item.quantity, 0);
+    return cart.reduce((total, item) => total + item.quantity, 0);
   }, [cart]);
 
   const cartTotal = useMemo(() => {
