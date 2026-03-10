@@ -11,15 +11,12 @@ const CartContextProvider = ({ children }) => {
   const addCart = (product) => {
     console.log(product);
     setcart((prevCart) => {
-      const existingItem = prevCart.find((item) => item.id == product.id);
+      const existingItem = prevCart.find((item) => item.id == product.id); //always use return in {}
       if (existingItem) {
-        return prevCart.map(
-          (
-            item, //remenber use
-          ) =>
-            item.id == product.id
-              ? { ...item, quantity: item.quantity + 1 }
-              : item,
+        return prevCart.map((item) =>
+          item.id == product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item,
         );
       } else {
         return [...prevCart, { ...product, quantity: 1 }];

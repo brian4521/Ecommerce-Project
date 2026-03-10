@@ -1,7 +1,7 @@
 import React from "react";
 
-const Cartitem = () => {
-  return <div>Cartitem</div>;
+const Cartitem = ({ CartItem }) => {
+  return <div className="text-white">Cartitem</div>;
 };
 
 export default Cartitem;
