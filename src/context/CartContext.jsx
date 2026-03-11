@@ -48,7 +48,7 @@ const CartContextProvider = ({ children }) => {
   }, [cart]);
 
   const cartTotal = useMemo(() => {
-    cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   }, [cart]);
 
   console.log("selected product", cart);
