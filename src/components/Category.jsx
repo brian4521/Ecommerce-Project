@@ -8,8 +8,7 @@ const categories = [
 ];
 console.log(categories);
 
-const Category = () => {
-  const [selectedCategory, setselectedCategory] = useState("Camera");
+const Category = ({ selectedCategory, setselectedCategory }) => {
   return (
     <>
       <div className="flex flex-wrap gap-3 border-b border-gray-800 pb-6">

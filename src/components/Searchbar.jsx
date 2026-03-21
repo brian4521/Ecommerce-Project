@@ -1,6 +1,6 @@
 import React from "react";
 import { Search } from "lucide-react";
-const Searchbar = () => {
+const Searchbar = ({ searchKeyword, setsearchKeyword }) => {
   return (
     <>
       <div className="mb-5 p-5 bg-gray-900 rounded-2xl shadow-2xl border border-y-gray-800">
@@ -10,6 +10,8 @@ const Searchbar = () => {
             type="text"
             className="w-full bg-transparent border-none px-4 py-3 text-white focus:outline-none text-xl"
             placeholder="Enter the product name"
+            value={searchKeyword}
+            onChange={(e) => setsearchKeyword(e.target.value)}
           />
         </div>
       </div>
